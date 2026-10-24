@@ -20,13 +20,18 @@
 ![Графики обучения](results.png)
 ![Предсказания на валидации](val_batch0_pred.jpg)
 
-## Запуск
+## Запуск на своём компьютере
 
-```
-pip install -r requirements.txt
-python app.py
-```
+1. Скачать проект: зелёная кнопка **Code → Download ZIP**, распаковать в папку без кириллицы, например `C:\pechenka`.
+2. Установить зависимости (Python 3.10–3.12):
+   ```
+   cd C:\pechenka
+   python -m venv .venv
+   .venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+3. Открыть Cookie Clicker в браузере и запустить:
+   - `python demo.py` — окно с тем, что видит нейросеть, + автоклики;
+   - `python app.py` — только автокликер.
 
-`app.py` ищет модель по пути `runs/detect/cookie_detector/weights/best.pt`. Если берёте `best.pt` из репозитория, положите его по этому пути или поменяйте путь в `app.py`.
-
-Остановка: Ctrl+C в терминале или мышь в левый верхний угол экрана.
+Остановка: клавиша Q в окне демо, Ctrl+C в терминале или мышь в левый верхний угол экрана.

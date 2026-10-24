@@ -2,6 +2,7 @@
 # Запуск: python app.py, затем за 3 секунды переключиться на игру.
 # Остановка: Ctrl+C в терминале или мышь в левый верхний угол экрана.
 import time
+from pathlib import Path
 
 import cv2
 import numpy as np
@@ -11,7 +12,10 @@ from ultralytics import YOLO
 pyautogui.FAILSAFE = True   # мышь в левый верхний угол — аварийная остановка
 pyautogui.PAUSE = 0
 
-model = YOLO("runs/detect/cookie_detector/weights/best.pt")
+MODEL = Path("runs/detect/cookie_detector/weights/best.pt")
+if not MODEL.exists():          # скачано с GitHub: best.pt лежит рядом со скриптом
+    MODEL = Path(__file__).with_name("best.pt")
+model = YOLO(str(MODEL))
 CONF = 0.7                  # порог уверенности
 
 
